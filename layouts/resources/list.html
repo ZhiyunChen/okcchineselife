@@ -1,0 +1,55 @@
+{{- define "main" }}
+
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}
+  <div class="post-description">{{ . }}</div>
+  {{- end }}
+</header>
+
+<div class="resource-filter-bar">
+  <div class="filter-categories">
+    <span class="filter-label">分类：</span>
+    <a href="/resources/" class="filter-tag filter-tag-all">全部</a>
+    <a href="/resources/?category=education" class="filter-tag">中文学校与教育</a>
+    <a href="/resources/?category=church" class="filter-tag">华人教会</a>
+    <a href="/resources/?category=community" class="filter-tag">社区组织</a>
+    <a href="/resources/?category=university" class="filter-tag">大学学生组织</a>
+    <a href="/resources/?category=grocery" class="filter-tag">超市与中餐</a>
+    <a href="/resources/?category=healthcare" class="filter-tag">医疗资源</a>
+    <a href="/resources/?category=professional" class="filter-tag">专业服务</a>
+    <a href="/resources/?category=homeservice" class="filter-tag">生活服务</a>
+  </div>
+</div>
+
+<div class="resource-grid">
+  {{- $pages := .Pages }}
+  {{- if not $pages }}
+  <p class="no-resources">暂无资源，欢迎<a href="/submit/">提交资源</a>。</p>
+  {{- else }}
+  {{- range $pages }}
+  {{- partial "resource-card.html" . }}
+  {{- end }}
+  {{- end }}
+</div>
+
+{{- if gt .Paginator.TotalPages 1 }}
+<footer class="page-footer">
+  <nav class="pagination">
+    {{- if .Paginator.HasPrev }}
+    <a class="prev" href="{{ .Paginator.Prev.URL | absURL }}">«&nbsp;上一页</a>
+    {{- end }}
+    {{- if .Paginator.HasNext }}
+    <a class="next" href="{{ .Paginator.Next.URL | absURL }}">下一页&nbsp;»</a>
+    {{- end }}
+  </nav>
+</footer>
+{{- end }}
+
+<div class="resource-list-footer">
+  <p>没有找到您需要的资源？欢迎<a href="/submit/">提交或推荐资源</a>，帮助完善本站内容。</p>
+  <p class="disclaimer-note">本站信息仅供参考，请以各机构官方渠道最新信息为准。<a href="/disclaimer/">查看免责声明</a></p>
+</div>
+
+{{- end }}

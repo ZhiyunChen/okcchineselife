@@ -1,0 +1,142 @@
+{{- define "main" }}
+
+<article class="resource-single">
+  <header class="resource-header">
+    {{- partial "breadcrumbs.html" . }}
+
+    <div class="resource-header-meta">
+      {{- with .Params.category }}
+      <span class="resource-category">{{ . }}</span>
+      {{- end }}
+      {{- with .Params.subcategory }}
+      <span class="resource-subcategory">{{ . }}</span>
+      {{- end }}
+      {{- with .Params.city }}
+      <span class="resource-city">📍 {{ . }}</span>
+      {{- end }}
+    </div>
+
+    <h1 class="resource-title">
+      {{- .Params.name_zh | default .Title }}
+    </h1>
+    {{- if .Params.name_zh }}
+    <div class="resource-title-en">{{ .Title }}</div>
+    {{- end }}
+
+    <div class="resource-verified">
+      {{- if eq .Params.claimed true }}
+      <span class="resource-badge badge-claimed">✓ 机构已确认</span>
+      {{- else }}
+      <span class="resource-badge badge-unverified">公开信息整理，尚未由机构确认</span>
+      {{- end }}
+      {{- with .Params.last_checked }}
+      <span class="resource-last-checked">最后核查：{{ . }}</span>
+      {{- end }}
+    </div>
+  </header>
+
+  <div class="resource-body">
+
+    <div class="resource-info-block">
+
+      {{- with .Params.description_zh }}
+      <div class="resource-description">
+        <p>{{ . }}</p>
+      </div>
+      {{- end }}
+
+      <div class="resource-details">
+
+        {{- with .Params.address }}
+        <div class="resource-detail-row">
+          <span class="detail-label">地址</span>
+          <span class="detail-value">{{ . }}</span>
+        </div>
+        {{- end }}
+
+        {{- with .Params.website }}
+        <div class="resource-detail-row">
+          <span class="detail-label">官方网站</span>
+          <span class="detail-value">
+            <a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a>
+          </span>
+        </div>
+        {{- end }}
+
+        {{- with .Params.phone }}
+        <div class="resource-detail-row">
+          <span class="detail-label">电话</span>
+          <span class="detail-value"><a href="tel:{{ . }}">{{ . }}</a></span>
+        </div>
+        {{- end }}
+
+        {{- with .Params.email }}
+        <div class="resource-detail-row">
+          <span class="detail-label">邮箱</span>
+          <span class="detail-value"><a href="mailto:{{ . }}">{{ . }}</a></span>
+        </div>
+        {{- end }}
+
+        {{- with .Params.wechat_note }}
+        <div class="resource-detail-row">
+          <span class="detail-label">微信</span>
+          <span class="detail-value">{{ . }}</span>
+        </div>
+        {{- end }}
+
+        {{- with .Params.languages }}
+        <div class="resource-detail-row">
+          <span class="detail-label">语言</span>
+          <span class="detail-value">{{ delimit . "、" }}</span>
+        </div>
+        {{- end }}
+
+        {{- with .Params.audience }}
+        <div class="resource-detail-row">
+          <span class="detail-label">适合人群</span>
+          <span class="detail-value">{{ delimit . "、" }}</span>
+        </div>
+        {{- end }}
+
+        {{- with .Params.area }}
+        <div class="resource-detail-row">
+          <span class="detail-label">服务区域</span>
+          <span class="detail-value">{{ . }}</span>
+        </div>
+        {{- end }}
+
+      </div>
+
+      {{- with .Params.notes }}
+      <div class="resource-notes">
+        <strong>编者注：</strong>{{ . }}
+      </div>
+      {{- end }}
+
+    </div>
+
+    {{- if .Content }}
+    <div class="resource-content md-content">
+      {{ .Content }}
+    </div>
+    {{- end }}
+
+  </div>
+
+  <footer class="resource-footer">
+    <div class="resource-claim-notice">
+      <p>你是该机构负责人吗？欢迎联系 <a href="mailto:contact@okcchineselife.com">contact@okcchineselife.com</a> 认领并更新此页面。</p>
+    </div>
+    <div class="resource-disclaimer">
+      <p>本站信息仅供参考，请以各机构官方渠道最新信息为准。<a href="/disclaimer/">查看免责声明</a></p>
+    </div>
+    {{- with .Params.source_url }}
+    <div class="resource-source">
+      <p>信息来源：<a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a></p>
+    </div>
+    {{- end }}
+  </footer>
+
+</article>
+
+{{- end }}

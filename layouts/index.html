@@ -1,0 +1,228 @@
+{{- define "main" }}
+
+{{/* ── HERO ─────────────────────────────────────────────────── */}}
+<section class="hp-hero">
+  {{- if os.FileExists "static/images/okc-hero.jpg" }}
+  <div class="hp-hero-bg" style="background-image:url('/images/okc-hero.jpg');"></div>
+  {{- end }}
+  <div class="hp-hero-grad-lr"></div>
+  <div class="hp-hero-grad-tb"></div>
+
+  <div class="hp-hero-inner">
+
+    {{/* Left column */}}
+    <div class="hp-hero-left">
+      <div class="hp-hero-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        Oklahoma City Metro 华人生活资源导航
+      </div>
+
+      <h1 class="hp-hero-title">OKC 华人生活</h1>
+
+      <p class="hp-hero-subtitle">
+        为 Oklahoma City Metro 华人家庭整理教育、医疗、生活服务与本地办事资源。
+      </p>
+      <p class="hp-hero-desc">
+        收录 OKC、Edmond、Norman、Moore、Yukon 等地区的中文学校、教会、医疗、报税、法律、装修、家政、儿童活动和政府办事信息。
+      </p>
+
+      <div class="hp-hero-btns">
+        <a href="/resources/" class="hp-btn hp-btn-white">
+          浏览资源目录
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="/submit/" class="hp-btn hp-btn-ghost">提交 / 更新资源</a>
+      </div>
+    </div>
+
+    {{/* Right column – search card */}}
+    <div class="hp-hero-right">
+      <div class="hp-search-card">
+        <div class="hp-search-label">快速搜索</div>
+        <div class="hp-search-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+            fill="none" stroke="#78716c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>搜索中文学校、医疗、报税、装修、教会……</span>
+        </div>
+        <p class="hp-search-hint">浏览下方分类，或<a href="/resources/">查看全部资源</a></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{{/* ── CATEGORIES ───────────────────────────────────────────── */}}
+<section class="hp-section hp-cats-section">
+  <div class="hp-inner">
+    <div class="hp-section-head">
+      <div>
+        <h2 class="hp-section-title">精选资源分类</h2>
+        <p class="hp-section-sub">从最常用的生活场景开始查找。</p>
+      </div>
+      <a href="/resources/" class="hp-outline-btn">查看全部资源</a>
+    </div>
+
+    <div class="hp-cats-grid">
+
+      <a href="/resources/" class="hp-cat-card">
+        <div class="hp-cat-icon-wrap">🎓</div>
+        <h3 class="hp-cat-title">中文学校与教育</h3>
+        <p class="hp-cat-desc">中文学校、补习、ACT/SAT、课外活动</p>
+        <div class="hp-cat-link">进入分类 <span>→</span></div>
+      </a>
+
+      <a href="/resources/" class="hp-cat-card">
+        <div class="hp-cat-icon-wrap">🏥</div>
+        <h3 class="hp-cat-title">医疗与医疗资源</h3>
+        <p class="hp-cat-desc">会中文的医疗、牙医、药店与医疗帮助</p>
+        <div class="hp-cat-link">进入分类 <span>→</span></div>
+      </a>
+
+      <a href="/resources/" class="hp-cat-card">
+        <div class="hp-cat-icon-wrap">⚖️</div>
+        <h3 class="hp-cat-title">律师 / 报税 / 保险</h3>
+        <p class="hp-cat-desc">移民、税务、法律与保险服务线索</p>
+        <div class="hp-cat-link">进入分类 <span>→</span></div>
+      </a>
+
+      <a href="/resources/" class="hp-cat-card">
+        <div class="hp-cat-icon-wrap">🏠</div>
+        <h3 class="hp-cat-title">装修 / 家政 / 房屋服务</h3>
+        <p class="hp-cat-desc">维修、装修、搬家、清洁与家庭服务</p>
+        <div class="hp-cat-link">进入分类 <span>→</span></div>
+      </a>
+
+      <a href="/resources/" class="hp-cat-card">
+        <div class="hp-cat-icon-wrap">⛪</div>
+        <h3 class="hp-cat-title">华人教会与社群</h3>
+        <p class="hp-cat-desc">中文崇拜、社区、学生组织及社区活动</p>
+        <div class="hp-cat-link">进入分类 <span>→</span></div>
+      </a>
+
+      <a href="/resources/" class="hp-cat-card">
+        <div class="hp-cat-icon-wrap">🛒</div>
+        <h3 class="hp-cat-title">亚洲超市与中餐</h3>
+        <p class="hp-cat-desc">亚洲超市、中餐馆、Asian District 资源</p>
+        <div class="hp-cat-link">进入分类 <span>→</span></div>
+      </a>
+
+      <a href="/resources/" class="hp-cat-card">
+        <div class="hp-cat-icon-wrap">📅</div>
+        <h3 class="hp-cat-title">儿童活动 / Summer Camp</h3>
+        <p class="hp-cat-desc">VBS、夏令营、周末活动与家庭活动</p>
+        <div class="hp-cat-link">进入分类 <span>→</span></div>
+      </a>
+
+      <a href="/resources/" class="hp-cat-card">
+        <div class="hp-cat-icon-wrap">📋</div>
+        <h3 class="hp-cat-title">政府办事帮助</h3>
+        <p class="hp-cat-desc">驾驶证、学校注册、REAL ID、市政服务</p>
+        <div class="hp-cat-link">进入分类 <span>→</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+{{/* ── GUIDES ───────────────────────────────────────────────── */}}
+<section class="hp-section hp-guides-section">
+  <div class="hp-inner hp-guides-inner">
+
+    <div class="hp-guides-left">
+      <div class="hp-guides-badge">👥 新来 OKC 必看</div>
+      <h2 class="hp-section-title">难找到的信息，用中文讲清楚</h2>
+      <p class="hp-guides-desc">
+        不只是发链接，也会解释美国本地生活中的常见流程：学校注册、就医、驾照、报税、找服务等。
+      </p>
+    </div>
+
+    <div class="hp-guides-list">
+      {{- $guides := where site.RegularPages "Section" "guides" }}
+      {{- range first 4 $guides }}
+      <a href="{{ .Permalink }}" class="hp-guide-card">
+        <div class="hp-guide-title">{{ .Title }}</div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="flex-shrink:0;">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+      {{- end }}
+    </div>
+
+  </div>
+</section>
+
+{{/* ── RECENT RESOURCES ─────────────────────────────────────── */}}
+<section class="hp-section">
+  <div class="hp-inner">
+    <div class="hp-section-head">
+      <div>
+        <h2 class="hp-section-title">最近更新的资源</h2>
+        <p class="hp-section-sub">每条资源都会标注核实状态和最后更新时间。</p>
+      </div>
+    </div>
+
+    <div class="hp-recent-grid">
+      {{- $resources := where site.RegularPages "Section" "resources" }}
+      {{- range first 3 $resources }}
+      <a href="{{ .Permalink }}" class="hp-recent-card">
+        {{- with .Params.category }}
+        <div class="hp-recent-tag">{{ . }}</div>
+        {{- end }}
+        <h3 class="hp-recent-name">{{ .Params.name_zh | default .Title }}</h3>
+        <div class="hp-recent-status">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+            style="flex-shrink:0;margin-top:2px;">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>{{ .Params.verified_status | default "公开信息整理" }}</span>
+        </div>
+        {{- with .Params.last_checked }}
+        <div class="hp-recent-date">最后核查：{{ . }}</div>
+        {{- end }}
+      </a>
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+{{/* ── SUBMIT CTA ───────────────────────────────────────────── */}}
+<section class="hp-section" id="submit">
+  <div class="hp-inner">
+    <div class="hp-cta-card">
+      <div class="hp-cta-left">
+        <h2 class="hp-cta-title">知道好资源？欢迎推荐。</h2>
+        <p class="hp-cta-desc">
+          如果你知道 OKC Metro 地区的中文学校、医疗、报税、装修、家政、教会、活动或其他信息，欢迎提交。我们会人工审核后收录。
+        </p>
+      </div>
+      <div class="hp-cta-right">
+        <a href="/submit/" class="hp-btn hp-btn-white">推荐资源</a>
+        <a href="/submit/" class="hp-btn hp-btn-ghost-dark">认领 / 更新页面</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ── FOOTER NOTE ─────────────────────────────────────────── */}}
+<div class="hp-footer-note">
+  <div class="hp-inner">
+    本站主要整理公开信息和社区提交资源。信息可能变动，请以官方网站或机构最新说明为准。本站收录不代表服务推荐或质量保证。
+    <a href="/disclaimer/">查看免责声明</a>
+  </div>
+</div>
+
+{{- end }}

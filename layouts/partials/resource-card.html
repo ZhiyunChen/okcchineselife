@@ -1,0 +1,36 @@
+{{- $p := . }}
+<article class="resource-card">
+  <div class="resource-card-header">
+    <div class="resource-card-meta">
+      {{- with $p.Params.category }}
+      <span class="resource-category">{{ . }}</span>
+      {{- end }}
+      {{- with $p.Params.city }}
+      <span class="resource-city">{{ . }}</span>
+      {{- end }}
+    </div>
+    {{- if eq $p.Params.claimed true }}
+    <span class="resource-badge badge-claimed">机构已确认</span>
+    {{- else if eq $p.Params.verified_status "机构已确认" }}
+    <span class="resource-badge badge-claimed">机构已确认</span>
+    {{- else }}
+    <span class="resource-badge badge-unverified">公开信息整理</span>
+    {{- end }}
+  </div>
+  <h3 class="resource-card-title">
+    <a href="{{ $p.Permalink }}">{{ $p.Params.name_zh | default $p.Title }}</a>
+  </h3>
+  {{- if $p.Params.name_zh }}
+  <div class="resource-card-en">{{ $p.Title }}</div>
+  {{- end }}
+  {{- with $p.Params.description_zh }}
+  <p class="resource-card-desc">{{ . | truncate 80 }}</p>
+  {{- end }}
+  <div class="resource-card-footer">
+    {{- with $p.Params.website }}
+    <a href="{{ . }}" class="resource-link" target="_blank" rel="noopener noreferrer">官方网站 →</a>
+    {{- end }}
+    <a href="{{ $p.Permalink }}" class="resource-link resource-link-detail">查看详情 →</a>
+  </div>
+  <a class="card-full-link" href="{{ $p.Permalink }}" aria-label="{{ $p.Title }}"></a>
+</article>

@@ -1,0 +1,74 @@
+baseURL: "https://okcchineselife.com/"
+locale: "zh-Hans"
+title: "OKC 华人生活"
+theme: "PaperMod"
+paginate: 20
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: "OKC 华人生活"
+  description: "为 Oklahoma City Metro 华人家庭整理教育、医疗、生活服务与本地办事资源"
+  keywords:
+    - "OKC华人"
+    - "Oklahoma City华人"
+    - "OKC华人生活"
+    - "OKC中文学校"
+    - "Oklahoma华人资源"
+    - "OKC华人教会"
+    - "OKC华人医生"
+    - "OKC报税"
+  author: "OKC 华人生活编辑组"
+  defaultTheme: light
+  disableThemeToggle: false
+  ShowReadingTime: false
+  ShowShareButtons: false
+  ShowPostNavLinks: false
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  ShowToc: false
+  comments: false
+
+  # Favicons – all pointing to the SVG until PNG versions are generated
+  assets:
+    favicon: "/favicon.svg"
+    favicon16x16: "/favicon.svg"
+    favicon32x32: "/favicon.svg"
+    apple_touch_icon: "/favicon.svg"
+    safari_pinned_tab: "/favicon.svg"
+
+  # Open Graph / Twitter card (add okc-hero.jpg to /static/images/ to activate)
+  images: []
+
+menu:
+  main:
+    - identifier: resources
+      name: 浏览资源
+      url: /resources/
+      weight: 10
+    - identifier: guides
+      name: 生活指南
+      url: /guides/
+      weight: 20
+    - identifier: submit
+      name: 提交资源
+      url: /submit/
+      weight: 30
+    - identifier: about
+      name: 关于本站
+      url: /about/
+      weight: 40
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
