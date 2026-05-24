@@ -5,3 +5,9 @@ resources/_gen/
 node_modules/
 .env
 *.pem
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
